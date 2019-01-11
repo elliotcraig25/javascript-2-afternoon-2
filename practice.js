@@ -208,29 +208,57 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 
 //Code Here
 
-function removeItem(myGroceryList, removeItem){
-  if(myGroceryList==false){
-    let emptyArr = [];
-    return emptyArr;
-  }else if(removeItem==false){
-    let emptyArr = [];
-    return emptyArr;
-  }else{
-    for(let i = 0;i<myGroceryList.length;i++){
-      if(myGroceryList[i]===removeItem){
-        myGroceryList.splice(myGroceryList[i], 1)
-      }
-    }
-    return myGroceryList;
-  }
+function removeItem(myGroceryList, item){
+  if(myGroceryList && item){
+  return  myGroceryList.filter((val, i, arr)=>{
+    return item !==val
+  })
+  }else{return []}
 }
 
-console.log(removeItem(myGroceryList))
-console.log(removeItem(myGroceryList, 'chips'))
+// function removeItem(myGroceryList, item){
+//   let index = myGroceryList.findIndex(val=>{
+//     return item===val
+//   })
+//   myGroceryList.splice(index, 1)
+//   return myGroceryList
+// }
 
-function addItem(myGroceryList, addItem){
-  myGroceryList.push(addItem);
+// function removeItem(myGroceryList, item){
+//   let newList = myGroceryList.slice()
+//   for(let i=0;i<myGroceryList.length;i++){
+//     if(myGroceryList[i]===item){
+//       myGroceryList.slice(i,1)
+//     }
+//   }
+//   return newList;
+// }
+
+// function removeItem(myGroceryList, removeItem){
+//   if(myGroceryList===false){
+//     let emptyArr = [];
+//     return emptyArr;
+//   }else if(removeItem==false){
+//     let emptyArr = [];
+//     return emptyArr;
+//   }else{
+//     for(let i = 0;i<myGroceryList.length;i++){
+//       if(myGroceryList[i]==removeItem){
+//         myGroceryList.splice(myGroceryList[i], 1)
+//       }
+//     }
+//     return myGroceryList;
+//   }
+// }
+
+// console.log(removeItem(myGroceryList))
+// console.log(removeItem(myGroceryList, 'chips'))
+
+function addItem(myGroceryList, item){
+  if(myGroceryList && item){
+  myGroceryList.push(item);
   return myGroceryList;
+  }else{return []}
 }
 
 ////////// PROBLEM 9 //////////
